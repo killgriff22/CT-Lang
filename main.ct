@@ -1,37 +1,15 @@
-Start of the program, jump over the function defintions and pointers
-JUMP 18
-Function pointers
-6
-10
-14
-Function 1
-INBS Function 1
+JUMP 10
+Print Function
+BSTR -
 PRINTB -
 JUMPA -
-Function 2
-INBS Function 2
-PRINTB -
-JUMPA -
-Function 3
-INBS Function 3
-PRINTB -
-JUMPA -
-Main Program
-INAI 23
-LOADB 3
-BINT -
-JUMPB -
-After Function 1, run Function 2
-INAI 28
-LOADB 4
-BINT -
-JUMPB -
-After Function 2, run Function 3
-INAI 33
-LOADB 5
-BINT -
-JUMPB -
-End Routine
-PRINTA -
-PRINTB -
+
+
+
+
+
+Main operation
+FUNC PRINT 1
+CALL PRINT HelloWorld 
+CALL PRINT HelloAgain 
 PEND

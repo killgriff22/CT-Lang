@@ -1,8 +1,7 @@
 import sys,os
 A_Register = None
 B_Register = None
-def func(instruction, a_register, b_register, addresses):
-    return
+Functions = []
 with open("./main.ct","r") as file:
     addresses = file.readlines()
     program_counter = 0
@@ -13,7 +12,6 @@ with open("./main.ct","r") as file:
         instruction = addresses[program_counter]
         #determine the action of the instruction
         if "PEND" not in instruction:
-                func(instruction, A_Register, B_Register, addresses)
                 #break down the instruction
                 instruction = instruction.split(" ")
                 if instruction[0] == "NOOP":
@@ -65,7 +63,14 @@ with open("./main.ct","r") as file:
                     print(f"Jumping to {B_Register}")
                     program_counter = B_Register
                     pass
-                    
+                elif instruction[0] == "FUNC":
+                    Functions.append([instruction[1], int(instruction[2].strip("\n"))])
+                elif instruction[0] == "CALL":
+                    for function in Functions:
+                        if function[0] == instruction[1]:
+                            B_Register = instruction[2]
+                            A_Register = program_counter
+                            program_counter = int(function[1])
         elif "PEND" in instruction:
             exit()
         program_counter+=1
