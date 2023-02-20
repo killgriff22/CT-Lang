@@ -1,0 +1,37 @@
+Start of the program, jump over the function defintions and pointers
+CTJJ 18
+Function pointers
+6
+10
+14
+Function 1
+CTB3 Function 1
+CTPB -
+CTJA -
+Function 2
+CTB3 Function 2
+CTPB -
+CTJA -
+Function 3
+CTB3 Function 3
+CTPB -
+CTJA -
+Main Program
+CTA2 23
+CTB1 3
+CTBI -
+CTJB -
+After Function 1, run Function 2
+CTA2 28
+CTB1 4
+CTBI -
+CTJB -
+After Function 2, run Function 3
+CTA2 33
+CTB1 5
+CTBI -
+CTJB -
+End Routine
+CTPA -
+CTPB -
+CTFF
