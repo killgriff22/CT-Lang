@@ -16,6 +16,8 @@ FUNC -- Creates a new instruction. Syntax (Name, Pointer)
 Make sure that you call JUMPA at the end of the instruction so that you can return to normal
 operation
 CALL -- Calls a created instruction. Syntax (Name, Argument)
+IMPORT -- Runs another file on disk and returns to the original file at PEND
+EXTERNAL FUNCTIONS SHOULD BE ENDED WITH PEND, NOT JUMPA 
 ----Standard instructions
 NOOP -- NOOP - NO OPERATION. Syntax (-)
 LOADA -- Load Address into A. Syntax (Instrcution, Address)

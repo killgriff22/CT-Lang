@@ -1,15 +1,5 @@
-JUMP 10
-Print Function
-BSTR -
+IMPORT test
+CALL HT test 
+INBS Test2
 PRINTB -
-JUMPA -
-
-
-
-
-
-Main operation
-FUNC PRINT 1
-CALL PRINT HelloWorld 
-CALL PRINT HelloAgain 
 PEND
