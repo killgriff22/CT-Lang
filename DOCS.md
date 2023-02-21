@@ -33,6 +33,8 @@ A-B -- Sub B from A. Syntax (-)
 JUMP -- Set program counter to new value and stop processing current instruction. Syntax (Address)
 JUMPA -- Set program counter to Value in A register and stop processing. Syntax (-)
 JUMPB -- Set program counter to Value in B register and stop processing. Syntax (-)
+CJUMP -- Conditional jump, compares A and B Registers. Syntax ([<,>,=,!=,<=,>=,!>,!<,!<=,!>=], Address)
+It always compares A register first (Ex. A_Register > B_Register)
 ----Comments
 Comments are plain text and should not be run, is they are, you likely have put CTFF of an
 instruction into your comment.

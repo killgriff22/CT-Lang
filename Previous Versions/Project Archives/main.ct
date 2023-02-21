@@ -1,0 +1,5 @@
+IMPORT test
+CALL HT test 
+INBS Test2
+PRINTB -
+PEND

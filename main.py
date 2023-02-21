@@ -1,9 +1,10 @@
 import sys,os
 A_Register = None
 B_Register = None
+window = None
 Functions = []
 def interpret(File,counter_start=0):
-    global A_Register,B_Register
+    global A_Register,B_Register,window
     with open(f"./{File}.ct","r") as file:
         addresses = file.readlines()
         program_counter = counter_start
@@ -78,6 +79,42 @@ def interpret(File,counter_start=0):
                                 program_counter=A_Register
                     elif instruction[0] == "IMPORT":
                         interpret(instruction[1].strip("\n"))
+                    elif instruction[0] == "CJUMP":
+                        Address = int(instruction[2].strip("\n"))
+                        jump=False
+                        if instruction[1] == ">":
+                            if A_Register > B_Register:
+                                jump=True
+                        elif instruction[1] == "<":
+                            if A_Register < B_Register:
+                                jump=True
+                        elif instruction[1] == "=":
+                            if A_Register == B_Register:
+                                jump=True
+                        elif instruction[1] == ">=":
+                            if A_Register >= B_Register:
+                                jump=True
+                        elif instruction[1] == "<=":
+                            if A_Register <= B_Register:
+                                jump=True
+                        elif instruction[1] == "!=":
+                            if not A_Register == B_Register:
+                                jump=True
+                        elif instruction[1] == "!<":
+                            if not A_Register < B_Register:
+                                jump=True
+                        elif instruction[1] == "!>":
+                            if not A_Register > B_Register:
+                                jump=True
+                        elif instruction[1] == "!>=":
+                            if not A_Register >= B_Register:
+                                jump = True
+                        elif instruction[1] == "!<=":
+                            if not A_Register <= B_Register:
+                                jump = True
+                        if jump:
+                            program_counter = Address
+                            
             elif "PEND" in instruction:
                 return
             program_counter+=1
