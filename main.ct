@@ -1,0 +1,26 @@
+This program will write out the contents of the provided file
+INAS test
+PRINTA -
+LOADDISK "./Previous Versions/Project Archives/V1/main.ct"
+INBI 0
+Main Event Loop
+INAI 36
+CJUMP < 23
+READEA -
+PRINTA -
+INAI 1
+B+A -
+JUMP 3
+
+
+
+
+
+
+
+
+
+
+
+
+PEND

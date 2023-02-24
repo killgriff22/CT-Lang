@@ -3,8 +3,10 @@ A_Register = None
 B_Register = None
 window = None
 Functions = []
+ExtraAddressSpace = [] #for adding files
 def interpret(File,counter_start=0):
     global A_Register,B_Register,window
+    global ExtraAddressSpace
     with open(f"./{File}.ct","r") as file:
         addresses = file.readlines()
         program_counter = counter_start
@@ -114,7 +116,17 @@ def interpret(File,counter_start=0):
                                 jump = True
                         if jump:
                             program_counter = Address
-                            
+                    elif instruction[1] == "LOADDISK":
+                        path = addresses[program_counter][9:]
+                        print("loading ",path)
+                        with open(path,"r") as f:
+                            ExtraAddressSpace = f.readlines()
+                            f.close()
+                    elif instruction[0] == "READEA":
+                        print(B_Register,len(ExtraAddressSpace))
+                        A_Register = ExtraAddressSpace[B_Register].strip("\n")
+                    elif instruction[0] == "READEB":
+                        B_Register = ExtraAddressSpace[A_Register].strip("\n")
             elif "PEND" in instruction:
                 return
             program_counter+=1
